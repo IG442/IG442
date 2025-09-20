@@ -1,4 +1,4 @@
-class printThreeWords {
+class main{
     public static void main(String[] args) {
 
         System.out.println("Orange");
@@ -6,3 +6,4 @@ class printThreeWords {
         System.out.println("Apple");
     }
 }
+
