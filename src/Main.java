@@ -1,172 +1,90 @@
+class Product {
+    private String name;
+    private String productionDate;
+    private String manufacturer;
+    private String originCountry;
+    private double price;
+    private boolean isReserved;
+
+    public Product(String name, String productionDate, String manufacturer, String originCountry, int price, boolean isReserved) {
+        this.name = name;
+        this.productionDate = productionDate;
+        this.manufacturer = manufacturer;
+        this.originCountry = originCountry;
+        this.price = price;
+        this.isReserved = isReserved;
+    }
+
+    public void printInfo() {
+        System.out.println("Название: " + name);
+        System.out.println("Дата производства: " + productionDate);
+        System.out.println("Производитель: " + manufacturer);
+        System.out.println("Страна происхождения: " + originCountry);
+        System.out.println("Цена: " + price + " Usd");
+        System.out.println("Бронирование: " + (isReserved ? "Забронировано" : "Доступно"));
+        System.out.println("   ");
+    }
+}
+
 public class Main {
     public static void main(String[] args) {
-        task1();
-        task2();
-        task3();
-        task4();
-        task5();
-        task6();
-        task7(10);
-        System.out.println(task7(-5));
-        task8("Привет", 5);
-        task9();
-        task10();
-        task11();
-        task12();
-        task13();
-        int[] result = task14(5, 7);
-        for (int value : result) {
-            System.out.print(value + " ");
+        Product[] productsArray = new Product[5];
+
+        productsArray[0] = new Product("Samsung S26 Ultra", "01.02.2025", "Samsung Corp.", "Korea", 5555, true);
+        productsArray[1] = new Product("iPhone 17 Pro", "15.09.2025", "Apple Inc.", "USA", 9999, false);
+        productsArray[2] = new Product("Huawei Honor 15", "20.03.2025", "Huawei Technologies", "China", 6666, true);
+        productsArray[3] = new Product("Xiaomi Note 12 Pro", "18.05.2024", "Xiaomi Corp.", "China", 7777, false);
+        productsArray[4] = new Product("Google Pixel 11", "11.09.2024", "Google", "USA", 999, true);
+
+        for (Product product : productsArray) {
+            product.printInfo();
+        }
+    }
+}
+
+class Park {
+    static class Attraction {
+        private String name;
+        private String openTime;
+        private String closeTime;
+        private double price;
+
+        public Attraction(String name, String openTime, String closeTime, double price) {
+            this.name = name;
+            this.openTime = openTime;
+            this.closeTime = closeTime;
+            this.price = price;
+        }
+
+        public void printAttractionInfo() {
+            System.out.println("Аттракцион: " + name);
+            System.out.println("Время работы: " + openTime + " - " + closeTime);
+            System.out.println("Стоимость: " + price + " руб.");
+            System.out.println("   ");
         }
     }
 
-    static void task1() {
-        System.out.println("Orange");
-        System.out.println("Banana");
-        System.out.println("Apple");
-    }
-
-    static void task2() {
-        int a = 5;
-        int b = -3;
-        int sum = a + b;
-        if (sum >= 0) {
-            System.out.println("Сумма положительная");
-        } else {
-            System.out.println("Сумма отрицательная");
+    public class ExamplePark {
+        public static void main(String[] args) {
+            Park.demonstrateAttractions();
         }
     }
 
-    static void task3() {
-        int value = 50;
-        if (value <= 0) {
-            System.out.println("Красный");
-        } else if (value > 0 && value <= 100) {
-            System.out.println("Желтый");
-        } else {
-            System.out.println("Зеленый");
+    public static void demonstrateAttractions() {
+        Attraction[] attractions = new Attraction[3];
+        attractions[0] = new Attraction("Американские горки", "11:00", "21:00", 500);
+        attractions[1] = new Attraction("Мини машинки", "10:00", "20:00", 700);
+        attractions[2] = new Attraction("Карусель", "10:30", "19:30", 300);
+
+        System.out.println("Информация об аттракционах парка:");
+        for (Attraction attr : attractions) {
+            attr.printAttractionInfo();
         }
     }
+}
 
-    static void task4() {
-        int a = 10;
-        int b = 5;
-        if (a >= b) {
-            System.out.println("a >= b");
-        } else {
-            System.out.println("a < b");
-        }
-    }
-
-    public static boolean task5() {
-        boolean result;
-        int a = 5;
-        int b = 15;
-        int sum = a + b;
-        if (sum >= 10 && sum <= 20) {
-            result = true;
-        } else {
-            result = false;
-        }
-        return result;
-    }
-
-    static void task6() {
-        int number = 10;
-        if (number >= 0) {
-            System.out.println("Положительное");
-        } else {
-            System.out.println("Отрицательное");
-        }
-    }
-
-    public static boolean task7(int number) {
-        return number < 0;
-    }
-
-    static void task8(String text, int count) {
-        for (int i = 0; i < count; i++) {
-            System.out.println(text);
-        }
-    }
-
-    public static boolean task9() {
-        int year = 1999;
-        boolean result;
-        if (year % 400 == 0) {
-            return true;
-        } else if (year % 100 == 0) {
-            return false;
-        } else if (year % 4 == 0) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    static void task10() {
-        int[] arr = {1, 1, 0, 0, 1, 0, 1, 1, 0, 0};
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] == 0) {
-                arr[i] = 1;
-            } else if (arr[i] == 1) {
-                arr[i] = 0;
-            }
-        }
-        for (int num : arr) {
-            System.out.print(num + " ");
-        }
-    }
-
-    static void task11() {
-        int[] arr = new int[100];
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] = i + 1;
-        }
-        for (int num : arr) {
-            System.out.print(num + " ");
-        }
-    }
-
-    static void task12() {
-        int[] arr = {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1};
-        System.out.println("Исходный массив:");
-        for (int num : arr) {
-            System.out.print(num + ", ");
-        }
-        System.out.println();
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] < 6) {
-                arr[i] *= 2;
-            }
-        }
-        System.out.println("Изменённый массив:");
-        for (int num : arr) {
-            System.out.print(num + ", ");
-        }
-        System.out.println();
-    }
-
-    static void task13() {
-        int size = 5;
-        int[][] arr = new int[size][size];
-        for (int i = 0; i < size; i++) {
-            arr[i][i] = 1;
-        }
-        System.out.println("");
-        for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size; j++) {
-                System.out.print(arr[i][j] + " ");
-            }
-            System.out.println();
-        }
-    }
-
-    static int[] task14(int len, int initialValue) {
-        int[] array = new int[len];
-        for (int i = 0; i < len; i++) {
-            array[i] = initialValue;
-        }
-        return array;
+class ExamplePark {
+    public static void main(String[] args) {
+        Park.demonstrateAttractions();
     }
 }
