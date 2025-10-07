@@ -11,6 +11,7 @@ class Bowl {
             System.out.println("В миску добавлено " + amount + " единиц еды. Теперь в миске: " + food + " единиц.");
         }
     }
+
     public boolean eat(int amount) {
         if (amount <= food) {
             food -= amount;
